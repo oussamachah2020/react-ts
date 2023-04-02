@@ -2,15 +2,16 @@ import React from "react";
 
 type GreetProps = {
   name: string;
-  messageCount: number;
+  messageCount?: number;
   isLoggedIn: boolean;
 };
 
 function Greet(props: GreetProps) {
+  const { messageCount = 0 } = props;
   return (
     <div>
       {props.isLoggedIn
-        ? `welcome ${props.name} you have ${props.messageCount} unread message`
+        ? `welcome ${props.name} you have ${messageCount} unread message`
         : "welcome guest"}
     </div>
   );
